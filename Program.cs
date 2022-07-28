@@ -37,7 +37,8 @@ void WriteArrayString(string[] array) // Вывод массива переме�
 
 }
 
-(string[], bool) VariableLengthLessThree(string[] array, int size) // 
+(string[], bool) VariableLengthLessThree(string[] array, int size) /* Функция определения  
+сколько в массиве array переменных с количеством символов меньше или равно size.*/
 {
     int indexNewArray = 0;
     int lngthArray = array.Length;
@@ -69,21 +70,25 @@ void WriteArrayString(string[] array) // Вывод массива переме�
 
 
 string text1 = "Введите количество строчных переменных от 1 до 10 => ";
-int amountVariables = Prompt(text1);
+int amountVariables = Prompt(text1); // Нахождение количества переменных 
 
-while (1 > amountVariables || amountVariables > 10)
+while (1 > amountVariables || amountVariables > 10) // Проверка на значения от 1 до 10.
 {
     amountVariables = Prompt(text1);
 }
 
-string[] array = ReadAmountVariables(amountVariables);
+string[] array = ReadAmountVariables(amountVariables); // Заполнение переменными массива
 
-int checkLength = 3; // 
-(string[] newArray, bool statusVariableThree) = VariableLengthLessThree(array, checkLength);
+int checkLength = 3; /* Максимальное значение символов в переменных, 
+которые будут выведены в консоль*/
+
+(string[] newArray, bool statusVariableThree) = VariableLengthLessThree(array, checkLength); /*
+Нахождение переменных меньше или равно statusVariableThree, и вывод их.
+*/
 
 System.Console.WriteLine();
 
-if (statusVariableThree==true) WriteArrayString(newArray);
+if (statusVariableThree==true) WriteArrayString(newArray); // Вывод новых переменных в консоль
 else System.Console.Write("Введенных  переменных нет значений с количеством символов меньше или равно 3. ");
 
 System.Console.WriteLine();
